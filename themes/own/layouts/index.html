@@ -1,0 +1,26 @@
+{{ define "main" }}
+<main class="flex flex-col items-center">
+  {{ with .Site.Params.gravatar }}
+  <div class="w-36 lg:w-48 pb-7">
+    <img
+      src="https://www.gravatar.com/avatar/{{md5 .}}?s=360&d=mp"
+      alt="gravatar"
+      class="rounded-full" />
+  </div>
+  {{ end }}
+  {{ with .Site.Params.author }}<h2 class="font-bold text-3xl pb-2">{{ . }}</h2>{{ end }}
+  {{ with .Site.Params.info }}<h3 class="font-bold text-lg pb-7">{{ . }}</h3>{{ end }}
+
+  {{ with .Site.Params.social }}
+  <ul class="flex space-x-4">
+    {{ range sort . "weight" }}
+      <li>
+        <a href="{{ .url | safeURL }}" target="_blank" class="text-2xl">
+          <i class="{{ .icon }}" aria-hidden="true"></i>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+  {{ end }}
+</main>
+{{ end }}
