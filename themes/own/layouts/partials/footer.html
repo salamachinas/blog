@@ -1,9 +1,0 @@
-{{ define "footer" }}
-<footer class="text-center text-xs">
-  <div>
-    © {{ with .Site.Params.since }} {{ . }} - {{ end }} {{ now.Year }} {{ with .Site.Params.author }} {{ . }} {{ end }}
-  </div>
-  <div class="pb-4">Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
-  </div>
-</footer>
-{{ end }}
